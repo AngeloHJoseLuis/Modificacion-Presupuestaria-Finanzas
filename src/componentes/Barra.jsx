@@ -9,15 +9,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import { Link } from 'react-router-dom';
-export const Barra =()=>{
-  const [show, setShow] = useState(true)
+export default function Barra (){
+  const [mostrar, setMostrar] = useState(true)
   const [opcionRegistro, setOpcionRegistro]= useState(false) 
   const [menu, setMenu]= useState(false)
   useEffect(() => {
    if(sessionStorage.getItem('token')){
     setMenu(true)
-    setShow(false)
-    setOpcionRegistro(false)
+    setMostrar(false)
+    setOpcionRegistro(true)
+ 
    }
   }, [])   
   const salir= () =>{
@@ -29,17 +30,16 @@ export const Barra =()=>{
   return (
     <div>
     
-        <Navbar bg="dark" variant="dark" expand={false}>
+        <Navbar bg="dark" variant="dark" expand={mostrar}>
           <Container fluid>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
         
-            <Navbar.Brand  href="#"> <i className="fa-solid fa-user-tie"></i> Bienvenido Fanor</Navbar.Brand>
+            <Navbar.Brand hidden={mostrar} href="#"> <i className="fa-solid fa-user-tie"></i> Bienvenido a : {sessionStorage.getItem('nombre')}</Navbar.Brand>
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Brand  href="#"></Navbar.Brand>
-            
-           
-            <Navbar.Brand   href="#" onClick={() =>salir()} >  <i className="fa-solid fa-user-xmark"></i> Cerrar Sesion</Navbar.Brand>
+           <Link hidden={opcionRegistro} style={{color: '#FFF', tetxDecoration:'none'}} to="/registrarCiudad"> <i className="fas fa-user-plus"></i> <Navbar.Brand>Registrarse</Navbar.Brand> </Link>
+            <Navbar.Brand hidden={mostrar}  href="#" onClick={() =>salir()} >  <i className="fa-solid fa-user-xmark"></i> Cerrar Sesion</Navbar.Brand>
       
             <Navbar.Offcanvas
               id="offcanvasNavbar"
@@ -66,7 +66,7 @@ export const Barra =()=>{
                     id="offcanvasNavbarDropdown"
                   >
                     <NavDropdown.Item href="/verPersonas"><i class="fa-solid fa-clipboard"></i>  Ver Personas</NavDropdown.Item>
-                    <NavDropdown.Item href="/verCiudad"> <i class="fa-solid fa-clipboard"></i>  Ver Ciuda </NavDropdown.Item>
+                    <NavDropdown.Item href="/verCiudad"> <i class="fa-solid fa-clipboard"></i>  Ver Ciudad </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
                 <Form className="d-flex">

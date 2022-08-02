@@ -29,15 +29,15 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export const Login = () =>{
+export default function Login () {
   const [correo, setCorreo] = useState('')
     const [contrasena, setContrasena]= useState('') 
   
   const login = async(e)=>{
   e.preventDefault(); 
   const usuario={correo,contrasena}
-   const respuesta = await Axios.post('http://localhost:4000/ciudad/login',usuario); 
-    
+   const respuesta = await Axios.post('/ciudad/login',usuario); 
+  
    console.log(respuesta) 
    
    const mensaje= respuesta.data.mensaje
@@ -56,7 +56,7 @@ export const Login = () =>{
     const nombre = respuesta.data.nombre
     const idUsuario = respuesta.data.id
   
-    sessionStorage.setItem(' token',token )
+    sessionStorage.setItem('token',token )
     sessionStorage.setItem('nombre',nombre) 
     sessionStorage.setItem('idUsuario',idUsuario) 
      
