@@ -29,7 +29,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login () {
+export const Login = ()=> {
   const [correo, setCorreo] = useState('')
     const [contrasena, setContrasena]= useState('') 
   

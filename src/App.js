@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Barra from './componentes/Barra';
+import { Barra } from './componentes/Barra';
 import './App.css';
 import {RegistrarPersona} from './componentes/RegistrarPersona';
 import { VerPersonas } from './componentes/VerPersonas';
 import {RegistrarCiudad} from './componentes/RegistrarCiudad';
 import {VerCiudad} from './componentes/VerCiudad';
-import Login from './componentes/Login';
+import { Login } from './componentes/Login';
 import {Index} from './componentes/Index';
 function App() {
   return (

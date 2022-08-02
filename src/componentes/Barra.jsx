@@ -7,9 +7,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
 import { Link } from 'react-router-dom';
-export default function Barra (){
+export const Barra =()=>{
   const [mostrar, setMostrar] = useState(true)
   const [opcionRegistro, setOpcionRegistro]= useState(false) 
   const [menu, setMenu]= useState(false)
@@ -38,7 +37,7 @@ export default function Barra (){
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Brand  href="#"></Navbar.Brand>
-           <Link hidden={opcionRegistro} style={{color: '#FFF', tetxDecoration:'none'}} to="/registrarCiudad"> <i className="fas fa-user-plus"></i> <Navbar.Brand>Registrarse</Navbar.Brand> </Link>
+           <Link hidden={opcionRegistro} style={{color: '#FFF', textDecoration:'none' }} to="/registrarCiudad"> <i className="fas fa-user-plus"></i> <Navbar.Brand> Registrarse </Navbar.Brand> </Link>
             <Navbar.Brand hidden={mostrar}  href="#" onClick={() =>salir()} >  <i className="fa-solid fa-user-xmark"></i> Cerrar Sesion</Navbar.Brand>
       
             <Navbar.Offcanvas
